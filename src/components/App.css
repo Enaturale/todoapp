@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+
+.wrapper{
+  margin-top: 100px;
+  padding-left:  15rem;
+  border: #282c34;
+  
+}
+
+.formdesign{
+  border: 1px blue;
+}
