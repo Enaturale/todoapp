@@ -48,3 +48,25 @@
 .formdesign{
   border: 1px blue;
 }
+
+.formControl {
+  margin: 8px;
+  width: 400px;
+}
+
+.form{
+  margin: 8px;
+  width: 400px;
+}
+
+.title{
+  margin: 8px;
+}
+
+.buttonStyle {
+  width: 100px;
+  margin-left: 300px;
+  font-weight: "bold";
+  font-size: 18px;
+  margin-top: 10px;
+}
