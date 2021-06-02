@@ -1,13 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+    link:{
+        textDecoration:'none', 
+        fontSize: theme.spacing(4),
+        fontWeight:'bold',
+        marginLeft: '300px'
+
+    }
+}));
 
 const TodoDetail = (props) => {
   const classes = useStyles();
   //   const {title} = props.location.state.list;
-  const {title} = props.location.state.list;
+  const { title } = props.location.state.list;
 
   return (
     <div>
@@ -16,9 +25,11 @@ const TodoDetail = (props) => {
       </div>
 
       <div>
-        <Button variant="contained" color="primary">
-          Back to Todo List
-        </Button>
+        <Link to="/" className={classes.link}>
+          <Button variant="contained" color="primary">
+            Back to Todo List
+          </Button>
+        </Link>
       </div>
     </div>
   );

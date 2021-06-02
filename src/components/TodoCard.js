@@ -5,7 +5,7 @@ import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 
 import todo from "../images/list.png";
-import { Box } from "@material-ui/core";
+import { Box, Checkbox, FormControlLabel } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
 
@@ -49,6 +49,13 @@ const TodoCard = (props) => {
             >
               <div>{title}</div>
             </Link>
+
+            <FormControlLabel
+              value="start"
+              control={<Checkbox color="primary" />}
+              label="Completed"
+              labelPlacement="start"
+            />
 
             {/* {completed} */}
             <DeleteForeverOutlinedIcon
