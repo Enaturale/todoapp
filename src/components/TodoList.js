@@ -24,9 +24,13 @@ const useStyles = makeStyles((theme) => ({
 const TodoList = (props) => {
   const classes = useStyles();
 
+  const deleteTodoHandler =(id) =>{
+      props.getListId(id);
+  }
+
   const renderTodoList = props.lists.map((list) => {
     return (
-      <TodoCard list ={list}/>
+      <TodoCard list ={list} clickHandler={deleteTodoHandler} key={list.id}/>
     );
   });
 

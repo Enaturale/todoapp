@@ -43,6 +43,7 @@ const TodoCard = (props) => {
           {/* {completed} */}
           <DeleteForeverOutlinedIcon
             style={{ marginLeft: "23rem", color: "#D21404" }}
+            onClick = {() => props.clickHandler(id)}
           />
         </div>
         
