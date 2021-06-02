@@ -24,7 +24,9 @@ class AddTodo extends React.Component{
       return;
     }
     this.props.addTodoHandler(this.state);
-    this.setState({title: ""})
+    this.setState({title: ""});
+    this.props.history.push("/");
+
     
   }
 
