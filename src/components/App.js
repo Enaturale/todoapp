@@ -8,18 +8,53 @@ import AddTodo from "./AddTodo";
 import TodoList from "./TodoList";
 import TodoDetail from "./TodoDetail";
 
+import api from "../api/todo";
+import axios from "axios";
+import EditTodo from "./EditTodo";
 
 function App() {
   const LOCAL_STORAGE_KEY = "lists";
   const [list, setList] = useState([]);
 
-  //handle the todoform from the AddTodo
-  const addTodoHandler = (listed) => {
-    console.log(listed);
-    setList([...list, { id: uuid(), ...listed }]);
+  //function to retrieve todo items from the json placeholder
+  const retrieveLists = async () => {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos"
+    );
+    return response.data;
   };
 
-  const removeTodoHandler = (id) => {
+  //handle the todoform from the AddTodo
+  const addTodoHandler = async (listed) => {
+    console.log(listed);
+    const request = {
+      id: uuid(),
+      ...listed,
+    };
+    const response = await axios.post(
+      "https://jsonplaceholder.typicode.com/todos",
+      request
+    );
+    setList([...list, response.data]);
+  };
+
+  //function for editing of the item fetched from the placeholder
+  const updateTodoHandler = async (listed) => {
+    const response = await axios.put(
+      `https://jsonplaceholder.typicode.com/todos/${listed.id}`,
+      listed
+    );
+    const { id, title } = response.data;
+    setList(
+      list.map((listed) => {
+        return listed.id === id ? { ...response.data } : listed;
+      })
+    );
+  };
+
+  //function for removal of item from the fetched data
+  const removeTodoHandler = async (id) => {
+    await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
     const newTodoList = list.filter((listed) => {
       return listed.id !== id;
     });
@@ -28,12 +63,17 @@ function App() {
   };
 
   useEffect(() => {
-    const retrieveLists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (retrieveLists) setList(retrieveLists);
+    // const retrieveLists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    // if (retrieveLists) setList(retrieveLists);
+    const getAllItems = async () => {
+      const allItems = await retrieveLists();
+      if (allItems) setList(allItems);
+    };
+    getAllItems();
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(list));
+    //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(list));
   }, [list]);
 
   return (
@@ -54,7 +94,13 @@ function App() {
               <AddTodo {...props} addTodoHandler={addTodoHandler} />
             )}
           />
-          <Route path ="/listed/:id" component={TodoDetail}/> 
+          <Route
+            path="/edit"
+            render={(props) => (
+              <EditTodo {...props} updateTodoHandler={updateTodoHandler} />
+            )}
+          />
+          <Route path="/listed/:id" component={TodoDetail} />
         </Switch>
 
         {/* <AddTodo addTodoHandler={addTodoHandler} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 
 import Divider from "@material-ui/core/Divider";
@@ -8,6 +8,8 @@ import todo from "../images/list.png";
 import { Box, Checkbox, FormControlLabel } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
+import { Check } from "@material-ui/icons";
+import Icon from "@material-ui/core/Icon";
 
 const useStyles = makeStyles((theme) => ({
   titleList: {
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 30,
   },
   listeditems: {
-    width: 500,
+    width: 700,
     marginBottom: 20,
     paddingTop: 20,
     paddingBottom: 10,
@@ -49,17 +51,36 @@ const TodoCard = (props) => {
             >
               <div>{title}</div>
             </Link>
-
+            {/* 
             <FormControlLabel
-              value="start"
+              value="completed"
+              name="completed"
               control={<Checkbox color="primary" />}
               label="Completed"
               labelPlacement="start"
-            />
+              checked='true'
+              
+            /> */}
 
             {/* {completed} */}
+            
+            <Link
+              to={{
+                pathname: `/edit`,
+                state: { list: props.list },
+              }}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+            <Icon
+              style={{ marginLeft: "23rem", color: "blue" }}
+              
+            >
+              edit
+            </Icon>
+            </Link>
+
             <DeleteForeverOutlinedIcon
-              style={{ marginLeft: "23rem", color: "#D21404" }}
+              style={{ marginLeft: "2rem", color: "#D21404" }}
               onClick={() => props.clickHandler(id)}
             />
           </div>

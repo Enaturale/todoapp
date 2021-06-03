@@ -8,7 +8,7 @@ import { Button } from "@material-ui/core";
 class AddTodo extends React.Component {
   state = {
     title: " ",
-    // completed: " ",
+    completed: " ",
   };
 
   add = (e) => {
@@ -21,6 +21,10 @@ class AddTodo extends React.Component {
     this.setState({ title: "" });
     this.props.history.push("/");
   };
+
+  check= (e) => {
+    
+  }
 
   render() {
     return (
