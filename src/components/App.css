@@ -37,6 +37,10 @@
   }
 }
 
+.body{
+  background-color: darkblue;
+}
+
 
 .wrapper{
   margin-top: 100px;

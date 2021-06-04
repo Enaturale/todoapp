@@ -4,14 +4,17 @@ import { makeStyles } from "@material-ui/core/styles";
 import TodoCard from "./TodoCard";
 import { Button } from "@material-ui/core";
 import { Link} from "react-router-dom";
+import Box from '@material-ui/core/Box';
+import { borders } from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
   titleList: {
-    marginLeft: 250,
+    marginLeft: 300,
+    // textAlign: 'center',
     marginTop: 30,
   },
   listeditems: {
-    width: 500,
+    width: 300,
     marginBottom: 20,
     paddingTop: 20,
     paddingBottom: 10,
@@ -39,17 +42,21 @@ const TodoList = (props) => {
 
   return (
     <div className={classes.titleList}>
+
       <h2 style={{ marginTop: "90px" }}> ToDO List</h2>
       <Link to="/add" style ={{textDecoration:'none'}}>
       <Button
         variant="contained"
         color="primary"
-        style={{ marginLeft: "478px", fontSize:'large', fontWeight: 'bold'}}
+        style={{ marginLeft: "620px", fontSize:'large', fontWeight: 'bold'}}
       >
         Add Task
       </Button>
       </Link>
+
+      <Box width="800px" backgroundColor ="red">
       {renderTodoList}
+      </Box>
     </div>
   );
 };

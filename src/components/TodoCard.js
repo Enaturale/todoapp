@@ -4,7 +4,7 @@ import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 
-import todo from "../images/list.png";
+import todo from "../images/todolist.jpg";
 import { Box, Checkbox, FormControlLabel } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Gill Sans, sans-serif",
   },
   image: {
-    width: 25,
+    width: 29,
     height: 25,
     marginRight: 8,
   },
@@ -72,7 +72,7 @@ const TodoCard = (props) => {
               style={{ textDecoration: "none", color: "black" }}
             >
             <Icon
-              style={{ marginLeft: "23rem", color: "blue" }}
+              style={{ marginLeft: "37rem", color: "blue" }}
               
             >
               edit
@@ -80,14 +80,14 @@ const TodoCard = (props) => {
             </Link>
 
             <DeleteForeverOutlinedIcon
-              style={{ marginLeft: "2rem", color: "#D21404" }}
+              style={{ marginLeft: "1rem", color: "#D21404" }}
               onClick={() => props.clickHandler(id)}
             />
           </div>
         </Box>
       </div>
 
-      <div style={{ width: "600px" }}>
+      <div style={{ width: "800px" }}>
         <Divider />
         <Divider />
         <Divider />
