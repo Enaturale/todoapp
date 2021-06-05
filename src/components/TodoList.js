@@ -43,12 +43,12 @@ const TodoList = (props) => {
   return (
     <div className={classes.titleList}>
 
-      <h2 style={{ marginTop: "90px" }}> ToDO List</h2>
+      <h2 style={{ marginTop: "90px", fontSize:"3rem", fontWeight:'bold'}}>ToDO List</h2>
       <Link to="/add" style ={{textDecoration:'none'}}>
       <Button
         variant="contained"
         color="primary"
-        style={{ marginLeft: "620px", fontSize:'large', fontWeight: 'bold'}}
+        style={{ marginLeft: "590px", fontSize:'1.5rem', fontWeight: 'bold', marginBottom: '20px'}}
       >
         Add Task
       </Button>

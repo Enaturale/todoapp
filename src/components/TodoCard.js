@@ -3,8 +3,13 @@ import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";
+import getout from "../images/delete.png";
 
-import todo from "../images/todolist.jpg";
+import todo from "../images/appicon.jpg";
+import edit from "../images/editicon.png";
+
+
+
 import { Box, Checkbox, FormControlLabel } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
@@ -17,16 +22,18 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 30,
   },
   listeditems: {
-    width: 700,
+    width: 730,
+ 
     marginBottom: 20,
-    paddingTop: 20,
+    // paddingTop: 20,
+    marginTop:10,
     paddingBottom: 10,
     paddingLeft: 20,
     fontSize: 20,
     fontFamily: "Gill Sans, sans-serif",
   },
   image: {
-    width: 29,
+    width: 25,
     height: 25,
     marginRight: 8,
   },
@@ -38,7 +45,8 @@ const TodoCard = (props) => {
   return (
     <div>
       <div className={classes.listeditems}>
-        <Box display="flex">
+        <Box display="flex" border ={1} borderColor ="gray" height='90px' borderRadius='4px'>
+          <Box marginTop='20px' display ="flex" marginLeft="4px">
           <img src={todo} className={classes.image} alt="todo Icon" />
 
           <div style={{ fontWeight: "bold" }}>
@@ -71,27 +79,30 @@ const TodoCard = (props) => {
               }}
               style={{ textDecoration: "none", color: "black" }}
             >
-            <Icon
+              <img src={edit} className={classes.image} alt="todo Icon" style ={{ marginLeft: "37rem", color: "blue"}}   />
+            {/* <Icon
               style={{ marginLeft: "37rem", color: "blue" }}
               
             >
               edit
-            </Icon>
+            </Icon> */}
             </Link>
 
-            <DeleteForeverOutlinedIcon
+            {/* <DeleteForeverOutlinedIcon
               style={{ marginLeft: "1rem", color: "#D21404" }}
               onClick={() => props.clickHandler(id)}
-            />
+            /> */}
+            <img src={getout} className={classes.image} alt="todo Icon" onClick={() => props.clickHandler(id)} />
           </div>
+          </Box>
         </Box>
       </div>
 
-      <div style={{ width: "800px" }}>
+      {/* <div style={{ width: "800px" }}>
         <Divider />
         <Divider />
         <Divider />
-      </div>
+      </div> */}
     </div>
   );
 };

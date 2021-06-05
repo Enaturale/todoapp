@@ -22,9 +22,7 @@ class AddTodo extends React.Component {
     this.props.history.push("/");
   };
 
-  check= (e) => {
-    
-  }
+ 
 
   render() {
     return (
@@ -37,10 +35,8 @@ class AddTodo extends React.Component {
               variant="outlined"
               value={this.state.title}
               onChange={(e) => this.setState({ title: e.target.value })}
-              style={{ width: "400px", marginBottom: "7px" }}
-            />
-
-            
+              style={{ width: "600px", marginBottom: "7px" }}
+            />            
           </div>
 
           {/* <div>
@@ -57,7 +53,7 @@ class AddTodo extends React.Component {
           <Button
             variant="contained"
             color="primary"
-            style={{ width: "100px", fontWeight: "bold", marginTop: "10px" }}
+            style={{ width: "100px", fontWeight: "bold", marginTop: "10px", fontSize: '20px' }}
             onClick={this.add}
           >
             Add

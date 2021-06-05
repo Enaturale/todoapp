@@ -44,7 +44,7 @@
 
 .wrapper{
   margin-top: 100px;
-  padding-left:  15rem;
+  padding-left:  25rem;
   border: #282c34;
   
 }
@@ -64,7 +64,9 @@
 }
 
 .title{
-  margin: 8px;
+  /* margin: 8px; */
+  margin-bottom: 16px;
+  margin-left: 8px;
 }
 
 .buttonStyle {
