@@ -20,6 +20,7 @@ class AddTodo extends React.Component {
     this.props.addTodoHandler(this.state);
     this.setState({ title: "" });
     this.props.history.push("/");
+    alert("To do item Added");
   };
 
  
