@@ -24,6 +24,7 @@ class EditTodo extends React.Component {
     this.props.updateTodoHandler(this.state);
     this.setState({ title: "" });
     this.props.history.push("/");
+    alert("To do list updated");
   };
 
   

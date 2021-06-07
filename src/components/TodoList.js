@@ -30,6 +30,7 @@ const TodoList = (props) => {
 
   const deleteTodoHandler = (id) => {
     props.getListId(id);
+    alert("Item deleted");
   };
 
  
